@@ -1,7 +1,8 @@
 #include <math.h>   // smallpt, a Path Tracer by Kevin Beason, 2008
 #include <stdlib.h> // Make : g++ -O3 -fopenmp smallpt.cpp -o smallpt
 #include <stdio.h>  //        Remove "-fopenmp" for g++ version < 4.2
-#define double float
+// Causes rendering artifacts. Also 10% slower on Macbook Pro.
+// #define double float
 struct Vec {        // Usage: time ./smallpt 5000 && xv image.ppm
   double x, y, z;                  // position, also color (r,g,b)
   Vec(double x_=0, double y_=0, double z_=0){ x=x_; y=y_; z=z_; }
@@ -57,7 +58,7 @@ Vec radiance(const Ray &r_, int depth_, unsigned short *Xi){
   //    = Le0 + f0*(Le1 + f1*(Le2 + f2*(Le3 + f3*(L4)))
   //    = ...
   //    = Le0 + f0*Le1 + f0*f1*Le2 + f0*f1*f2*Le3 + f0*f1*f2*f3*Le4 + ...
-  // 
+  //
   // So:
   // F = 1
   // while (1){
