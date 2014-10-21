@@ -1,13 +1,13 @@
 # smallpt Makefile
 #
-# 
+#
 
 
 # Select appropriate compiler.
-#CPP=g++
-CPP=g++-4.2
-CPPFLAGS=-O3 -fopenmp       # Use this for gcc >= 4.2
-#CPPFLAGS=-O3               # Use this for gcc <  4.2
+CPP=g++
+#CPP=g++-4.2
+#CPPFLAGS=-O3 -fopenmp       # Use this for gcc >= 4.2
+CPPFLAGS=-O3               # Use this for gcc <  4.2
 
 ifdef DEBUG
 CPPFLAGS=-g
@@ -18,7 +18,7 @@ default: all
 all: smallpt smallpt4k
 
 smallpt: smallpt.cpp Makefile
-	$(CPP) $(CPPFLAGS) -o smallpt smallpt.cpp 
+	$(CPP) $(CPPFLAGS) -o smallpt smallpt.cpp
 
 clean:
 	-rm smallpt smallpt4k
