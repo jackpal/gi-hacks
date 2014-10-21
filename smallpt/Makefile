@@ -15,13 +15,19 @@ endif
 
 default: all
 
-all: smallpt smallpt4k
+all: smallpt explicit forward
 
 smallpt: smallpt.cpp Makefile
 	$(CPP) $(CPPFLAGS) -o smallpt smallpt.cpp
 
+explicit: explicit.cpp Makefile
+	$(CPP) $(CPPFLAGS) -o explicit explicit.cpp
+
+forward: forward.cpp Makefile
+	$(CPP) $(CPPFLAGS) -o forward forward.cpp
+
 clean:
-	-rm smallpt smallpt4k
+	-rm smallpt smallpt4k explicit forward
 
 tkdiff:
 	for i in `svn st -q | cut -c 8-`; do tkdiff $$i; done

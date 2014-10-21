@@ -1,2 +1,8 @@
+# Output files
 image.ppm
+
+# Executables
+
+explicit
+forward
 smallpt
